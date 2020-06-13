@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script src="./socketio/socket.io.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles.css">
+        <title>Check Connection</title>
+    </head>
+    <body>
 
+        <div class="led-box">
+            <div id="led-light"></div>
+            <p id="message"></p>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./socketio/socket.io.js"></script>
         <script>
-            var socket  = io.connect('http://localhost:8080');
+            const socket  = io.connect('http://10.10.10.25:3000')
 
+            socket.on('pong', ms => {
+                if(ms > 500) {
+                    $('#led-light').attr('class', 'led-yellow')
+                    $('#message').text('Bad Connection!')
+                } else {
+                    $('#led-light').attr('class', 'led-green')
+                    $('#message').text('Connected!')
+                }
+            });
+
+            socket.on('disconnect', msg => {
+                $('#led-light').attr('class', 'led-red')
+                $('#message').text('Disconnected!')
+            });
+
+            socket.on('connect', () => {
+                if(socket.connected) {
+                    $('#led-light').attr('class', 'led-green')
+                    $('#message').text('Connected!')
+                }
+            });
         </script>
-</body>
+    </body>
 </html>
