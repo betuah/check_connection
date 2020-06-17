@@ -8,6 +8,11 @@
 - **Github :** [My Github Libraries](https://github.com/betuah/)
 <hr>
 
+## Run Server App
+```sh
+$ docker-compose up
+```
+
 ## Reference :
 | Command                               | Description                         |
 | ------------------------------------- | ----------------------------------- |
