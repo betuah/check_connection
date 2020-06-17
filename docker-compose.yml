@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  server_check_connection:
-    build: .
-    container_name: server_check_connection
-    volumes:
-      - .:/usr/src/app
-    ports:
-      - 4001:4001
-    command: npm run start:prod
+    server:
+        build: .
+        container_name: server_check_connection
+        volumes:
+            - .:/usr/src/app
+        ports:
+            - 4001:4001
+        command: npm run start:prod
