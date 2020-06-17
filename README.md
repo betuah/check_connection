@@ -1,4 +1,4 @@
-# Check Connection Function
+# Check Connection Apps
 
 > **Desc :** This apps use for check connection from client to server
 
