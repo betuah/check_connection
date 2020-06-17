@@ -16,10 +16,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="./socketio/socket.io.js"></script>
         <script>
-            const socket  = io.connect('http://10.10.10.25:3000')
+            const socket  = io.connect('http://localhost:4001')
 
             socket.on('pong', ms => {
-                if(ms > 500) {
+                if(ms > 250) {
                     $('#led-light').attr('class', 'led-yellow')
                     $('#message').text('Bad Connection!')
                 } else {

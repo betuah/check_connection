@@ -5,6 +5,6 @@ const   express         = require("express"),
 const app       = express()
 const server    = http.createServer(app)
 const io        = socketIo(server, {pingInterval: 1000})
-const port      = 3000 
+const port      = 4001
 
 server.listen(port, () => console.log(`Socket IO Server listen on port ${port}`));
