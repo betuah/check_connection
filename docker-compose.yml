@@ -3,7 +3,7 @@ version: '3'
 services:
     server:
         build: .
-        container_name: server_check_connection
+        container_name: cc_app_server
         volumes:
             - .:/usr/src/app
         ports:
