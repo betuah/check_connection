@@ -16,7 +16,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="./socketio/socket.io.js"></script>
         <script>
-            const socket  = io.connect('https://103.52.145.197:3443')
+            const socket  = io.connect('https://setara.seamolec.org:3443', {rejectUnauthorized: false ,secure: true,transports: ['websocket']})
 
             socket.on('pong', ms => {
                 if(ms > 250) {
